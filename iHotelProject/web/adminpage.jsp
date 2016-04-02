@@ -19,7 +19,6 @@
             <input type="submit" name="edit" value="Edit"/>
             <input type="submit" name="Delete" value="Delete"/>
         </form>
-  
         <a href="LogOutServlet">Logout</a>
     </body>
 </html>

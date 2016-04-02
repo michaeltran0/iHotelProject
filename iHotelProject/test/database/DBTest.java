@@ -95,6 +95,13 @@ public class DBTest {
         assertEquals("neda", userLogin.getPassword());
         assertEquals("neda", userLogin.getType());
     }*/
-    
+
+         @Test
+    public void getRoomByIDTest() throws SQLException {
+      Room r = DBRoom.getRoomByID(1);
+             assertEquals(305, r.getRoomNo());
+             assertEquals(1, r.getRoomid());
+    }
+
     
 }

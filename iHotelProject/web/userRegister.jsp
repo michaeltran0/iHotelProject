@@ -25,6 +25,8 @@
               First Name<input type="text" name="fname" value="fname"/>
               Last Name<input type="text" name="lname" value="lname"/>
               
+              
+              
                 <input type="reset" name="button" value="Reset"/>
                 <input type="submit" name="create" value="create" />
             </table>

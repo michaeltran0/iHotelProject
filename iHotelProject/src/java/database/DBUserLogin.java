@@ -43,9 +43,9 @@ public class DBUserLogin {
         return userlog;    
     }
     // tested it will work
-    private static UserLogin getClient(int client_id) {
+    private static UserLogin getMember(int member_id) {
          UserLogin u = null;
-        String sql = "SELECT * FROM proj_user  WHERE userid = " + client_id;
+        String sql = "SELECT * FROM proj_user  WHERE userid = " + member_id;
         try {
             ResultSet rs = DBConnection.getStatement().executeQuery(sql);
            if(rs.next()){      
@@ -77,7 +77,7 @@ public class DBUserLogin {
                 + "where userid=" + email;
         try {
             DBConnection.getStatement().executeUpdate(sql);
-            u = getClient(member_id);
+            u = getMember(member_id);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -85,20 +85,21 @@ public class DBUserLogin {
     }
     
     //its not working
-    public static int insertMember(int memberid,String email, String pass, String _type, String phonenum, String fname, String _lname) throws SQLException {
-        int member_id = 0;       
+    //public static int insertMember(int memberid,String email, String pass, String _type, String phonenum, String fname, String _lname) throws SQLException {
+       // public static int insertMember(int memberid,String email, String pass, String _type, String phonenum, String fname, String _lname) throws SQLException {
+         public static void insertMember(UserLogin userlogin) throws SQLException {
+       // int member_id = 0;       
         DBConnection.getInstance(); 
         // insert client
         PreparedStatement ps = DBConnection.conn.prepareStatement
-        ("insert into proj_user (userid,email,password,type,phonenumber,fname,lname) values(?,?,?,?,?,?,?)");
-        ps.setInt(1, memberid);
-        ps.setString(2, email);
-        ps.setString(3, pass);
+        ("insert into proj_user (email,password,type,phonenumber,fname,lname) values(?,?,?,?,?,?,?)");
+       // ps.setInt(1, get);//???????
+        ps.setString(2,userlogin.getEmail() );
+        ps.setString(3, userlogin.getPassword());
         ps.setString(4, "member");
-        ps.setString(5, phonenum);
-        ps.setString(6, fname);
-        ps.setString(7, _lname);
-        //ResultSet rs = ps.executeQuery();
+        ps.setString(5, userlogin.getPhone());
+        ps.setString(6, userlogin.getfName());
+        ps.setString(7, userlogin.getlName());
         
         int insert_row = ps.executeUpdate();
         //if it doesnt insert
@@ -108,7 +109,6 @@ public class DBUserLogin {
  
         ps.close();
         
-        return member_id;
 
     }
     //tested and it will work
@@ -125,8 +125,7 @@ public class DBUserLogin {
             
         }
         return rowsDeleted;
-        
-       
+ 
     }
  
 

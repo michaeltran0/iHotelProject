@@ -17,9 +17,9 @@ public class Room {
     private float price;
     private boolean bathroom;
     private boolean room_availabe;
-    private String details;
+    private String notes;
 
-    public Room(int roomid, int roomNo, int floorNo, String roomType, float price, boolean bathroom, boolean room_availabe, String details) {
+    public Room(int roomid, int roomNo, int floorNo, String roomType, float price, boolean bathroom, boolean room_availabe, String notes) {
         this.roomid = roomid;
         this.roomNo = roomNo;
         this.floorNo = floorNo;
@@ -27,7 +27,7 @@ public class Room {
         this.price = price;
         this.bathroom = bathroom;
         this.room_availabe = room_availabe;
-        this.details = details;
+        this.notes = notes;
     }
 
     public int getRoomid() {
@@ -86,12 +86,12 @@ public class Room {
         this.room_availabe = room_availabe;
     }
 
-    public String getDetails() {
-        return details;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setNotes(String details) {
+        this.notes = notes;
     }
 
     

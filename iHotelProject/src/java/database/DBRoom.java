@@ -47,7 +47,19 @@ public class DBRoom {
 
         return roomlist;
     }
-    
+  /*  
+ private static int insertRoom(Room room) throws SQLException{
+     Room r = null;
+      DBConnection.getInstance();
+      PreparedStatement ps= DBConnection.conn.prepareStatement
+        ("INSERT INTO room (roomno,floorno,room_type,price,bathroom,room_available,notes) VALUES (?,?,?,?,?,?,?)");
+        //ps.setString(1, );
+      
+        ResultSet rs = ps.executeQuery();
+        return r;
+     
+ }*/
+  
  //not used not tested
    public static Room getRoomByID(int id) throws SQLException{
         
